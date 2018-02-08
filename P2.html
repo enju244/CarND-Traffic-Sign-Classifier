@@ -12000,7 +12000,7 @@ Number of classes = 43
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x7f452aa4ad30&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7f158cbb7be0&gt;</pre>
 </div>
 
 </div>
@@ -12618,7 +12618,7 @@ Bsu0MAwjMdiCZxhGYrAFzzCMxGALnmEYicEWPMMwEoMteIZhJAZb8AzDSAy24BmGkRj+P8NWRQWF
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.text.Text at 0x7f452a88e898&gt;</pre>
+<pre>&lt;matplotlib.text.Text at 0x7f158c9fe668&gt;</pre>
 </div>
 
 </div>
@@ -12977,11 +12977,11 @@ AAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Epoch count</span>
-<span class="n">EPOCHS</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">EPOCHS</span> <span class="o">=</span> <span class="mi">15</span>
 
 <span class="c1"># Batch size</span>
 <span class="n">BATCH_SIZE</span> <span class="o">=</span> <span class="mi">128</span>
@@ -13010,7 +13010,7 @@ AAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[109]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.contrib.layers</span> <span class="k">import</span> <span class="n">flatten</span><span class="p">,</span> <span class="n">xavier_initializer</span>
@@ -13092,7 +13092,6 @@ AAAASUVORK5CYII=
         <span class="n">fc2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">fc2</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">)</span>
 
         
-
         <span class="c1">## Layer 5 ##</span>
 
         <span class="c1"># Fully Connected. Input = 120. Output = 84.</span>
@@ -13101,13 +13100,12 @@ AAAASUVORK5CYII=
         <span class="n">fc3</span>    <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">fc2</span><span class="p">,</span> <span class="n">fc3_W</span><span class="p">)</span> <span class="o">+</span> <span class="n">fc3_b</span>
 
         <span class="c1"># Activation.</span>
-        <span class="n">fc3</span>    <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">fc3</span><span class="p">)</span>
+        <span class="n">fc3</span>    <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">fc3</span><span class="p">)</span>
 
         <span class="c1">## Mod - Dropout</span>
         <span class="n">fc3</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">fc3</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">)</span>
 
-        
-
+    
         <span class="c1">## Layer 6 ##</span>
 
         <span class="c1"># Fully Connected. Input = 84. Output = 43.</span>
@@ -13125,7 +13123,7 @@ AAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[110]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Placeholders for a batch of input images and output labels, respectively.</span>
@@ -13153,7 +13151,7 @@ AAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[111]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Logits - unnormalized log probabilities, output of the network</span>
@@ -13184,7 +13182,7 @@ AAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[112]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define &#39;correct&#39; as that prediction and label are equal.</span>
@@ -13221,7 +13219,7 @@ AAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[113]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
@@ -13242,8 +13240,10 @@ AAAASUVORK5CYII=
             <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">training_operation</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">batch_x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">batch_y</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">:</span> <span class="n">KEEP_PROB</span><span class="p">})</span>
             
         <span class="c1"># At the end of each epoch, measure loss and accuracy on the validation set.</span>
+        <span class="n">training_accuracy</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
         <span class="n">validation_accuracy</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">X_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;EPOCH </span><span class="si">{}</span><span class="s2"> ...&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Training Accuracy = </span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">training_accuracy</span><span class="p">))</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Validation Accuracy = </span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">validation_accuracy</span><span class="p">))</span>
         <span class="nb">print</span><span class="p">()</span>
         
@@ -13267,64 +13267,84 @@ AAAASUVORK5CYII=
 <pre>Training...
 
 EPOCH 1 ...
-Validation Accuracy = 0.536
+Training Accuracy = 0.575
+Validation Accuracy = 0.526
 
 EPOCH 2 ...
-Validation Accuracy = 0.797
+Training Accuracy = 0.775
+Validation Accuracy = 0.712
 
 EPOCH 3 ...
-Validation Accuracy = 0.830
+Training Accuracy = 0.866
+Validation Accuracy = 0.799
 
 EPOCH 4 ...
-Validation Accuracy = 0.868
+Training Accuracy = 0.899
+Validation Accuracy = 0.834
 
 EPOCH 5 ...
-Validation Accuracy = 0.878
+Training Accuracy = 0.919
+Validation Accuracy = 0.852
 
 EPOCH 6 ...
-Validation Accuracy = 0.910
+Training Accuracy = 0.937
+Validation Accuracy = 0.876
 
 EPOCH 7 ...
-Validation Accuracy = 0.922
+Training Accuracy = 0.949
+Validation Accuracy = 0.888
 
 EPOCH 8 ...
-Validation Accuracy = 0.930
+Training Accuracy = 0.950
+Validation Accuracy = 0.888
 
 EPOCH 9 ...
-Validation Accuracy = 0.944
+Training Accuracy = 0.963
+Validation Accuracy = 0.911
 
 EPOCH 10 ...
-Validation Accuracy = 0.941
+Training Accuracy = 0.968
+Validation Accuracy = 0.910
 
 EPOCH 11 ...
-Validation Accuracy = 0.938
+Training Accuracy = 0.968
+Validation Accuracy = 0.923
 
 EPOCH 12 ...
-Validation Accuracy = 0.949
+Training Accuracy = 0.972
+Validation Accuracy = 0.927
 
 EPOCH 13 ...
-Validation Accuracy = 0.949
+Training Accuracy = 0.974
+Validation Accuracy = 0.927
 
 EPOCH 14 ...
-Validation Accuracy = 0.945
+Training Accuracy = 0.974
+Validation Accuracy = 0.937
 
 EPOCH 15 ...
-Validation Accuracy = 0.949
+Training Accuracy = 0.988
+Validation Accuracy = 0.941
 
 EPOCH 16 ...
-Validation Accuracy = 0.951
+Training Accuracy = 0.991
+Validation Accuracy = 0.947
 
 EPOCH 17 ...
-Validation Accuracy = 0.948
+Training Accuracy = 0.992
+Validation Accuracy = 0.943
 
 EPOCH 18 ...
-Validation Accuracy = 0.959
+Training Accuracy = 0.993
+Validation Accuracy = 0.953
 
 EPOCH 19 ...
-Validation Accuracy = 0.949
+Training Accuracy = 0.995
+Validation Accuracy = 0.954
 
 EPOCH 20 ...
-Validation Accuracy = 0.953
+Training Accuracy = 0.995
+Validation Accuracy = 0.956
 
 Model saved
 </pre>
@@ -13348,7 +13368,7 @@ Model saved
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[114]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
@@ -13370,7 +13390,7 @@ Model saved
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Test Accuracy = 0.933
+<pre>Test Accuracy = 0.934
 </pre>
 </div>
 </div>
@@ -13402,7 +13422,7 @@ Model saved
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[115]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Loads and plots new images.</span>
@@ -13918,7 +13938,7 @@ GAXwPwFDvqLVmpF1AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[116]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Grayscale new images (rgb -&gt; gray)</span>
@@ -13941,7 +13961,7 @@ GAXwPwFDvqLVmpF1AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[117]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Print categories predicted by the model for given X_data.</span>
@@ -13973,7 +13993,7 @@ GAXwPwFDvqLVmpF1AAAAAElFTkSuQmCC
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Predictions: [31 28 35 25  1]
+<pre>Predictions: [31 23 35 25  1]
 Actual:         [31 10 35 25  1]
 </pre>
 </div>
@@ -13994,7 +14014,7 @@ Actual:         [31 10 35 25  1]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[118]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
@@ -14037,7 +14057,7 @@ Actual:         [31 10 35 25  1]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[119]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Top five softmax probabilities and categories for the predictions on the images found on the web. </span>
@@ -14076,29 +14096,32 @@ Actual:         [31 10 35 25  1]
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Image 1: 
-Top K softmax probabilities: [ 1.  0.  0.  0.  0.]
-Top K categories: [31  0  1  2  3]
+Top K softmax probabilities: [  9.98311877e-01   8.70956050e-04   6.64652849e-04   3.40241386e-05
+   3.21377993e-05]
+Top K categories: [31 21 19  5 39]
 Actual category: 31
 
 Image 2: 
-Top K softmax probabilities: [  1.00000000e+00   3.02058016e-24   4.81119606e-30   3.44094563e-34
-   1.44641079e-34]
-Top K categories: [28 41 20 24 36]
+Top K softmax probabilities: [ 0.77352715  0.11145856  0.04131101  0.02406631  0.02145814]
+Top K categories: [23 20 19  3 35]
 Actual category: 10
 
 Image 3: 
-Top K softmax probabilities: [ 1.  0.  0.  0.  0.]
-Top K categories: [35  0  1  2  3]
+Top K softmax probabilities: [  9.99887109e-01   3.82104372e-05   2.98794894e-05   1.84326218e-05
+   6.72972055e-06]
+Top K categories: [35  3 13 34 33]
 Actual category: 35
 
 Image 4: 
-Top K softmax probabilities: [ 1.  0.  0.  0.  0.]
-Top K categories: [25  0  1  2  3]
+Top K softmax probabilities: [  9.99814570e-01   6.32341907e-05   5.71494566e-05   2.80476670e-05
+   1.99627721e-05]
+Top K categories: [25 20 22 29 30]
 Actual category: 25
 
 Image 5: 
-Top K softmax probabilities: [ 1.  0.  0.  0.  0.]
-Top K categories: [1 0 2 3 4]
+Top K softmax probabilities: [  9.98820841e-01   7.27134466e-04   2.18735207e-04   2.14975284e-04
+   5.48432172e-06]
+Top K categories: [ 1  2  0  4 37]
 Actual category: 1
 
 </pre>
@@ -14132,7 +14155,7 @@ Actual category: 1
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Visualize your network&#39;s feature maps here.</span>
@@ -14163,6 +14186,19 @@ Actual category: 1
             <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">activation</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:,</span> <span class="n">featuremap</span><span class="p">],</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">activation_min</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">activation</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:,</span> <span class="n">featuremap</span><span class="p">],</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
 </div>
