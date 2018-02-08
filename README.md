@@ -179,8 +179,7 @@ The model was able to correctly guess 4 of the 5 traffic signs, which gives an a
 Testing on New Images, Top-K prediction
 ---
 
-The Top-5 predictions softmax probabilities are also calculated for each of the new test images. Interestingly, for all five of the images, the classifier is very confident (i.e, probability 1) about it's prediction (in which, one of the five, is unfortunately incorrect). While softmax value would theoretically not be exactly 1 or 0, it most likely shows up this way due to rounding in floating point. 
-
+The Top-5 predictions softmax probabilities are also calculated for each of the new test images. For all five of the images, the classifier is confident about it's prediction (in which, one of the five, is unfortunately incorrect). 
 
 For the first, third, fourth, and fifth images, the model is very sure of its prediction, and it's prediction is correct.
 
